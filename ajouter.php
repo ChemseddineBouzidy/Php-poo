@@ -44,6 +44,7 @@
                 exit;
             } else {
                 //More secure
+                
                 $stmt = $pdo->prepare("INSERT INTO stagiaires (nom, prenom, age) VALUES (:nom, :prenom, :age)");
                 $stmt->bindParam(':nom', $nom);
                 $stmt->bindParam(':prenom', $prenom);
@@ -51,13 +52,14 @@
                 $stmt->execute();
                 if ($stmt->rowCount() > 0) {
                     echo "<p class='text-success'>Stagiaire ajouté avec succès!</p>";
+                      header("Location: index.php");
                 } else {
                     echo "<p class='text-danger'>Erreur lors de l'ajout du stagiaire.</p>";
                 }
                     
 
                 //Unsafe (not secure):
-                
+
                 // $stmt = $pdo->prepare("INSERT INTO stagiaires VALUES (null, ?, ?, ?)");
                 // $stmt->execute([$nom, $prenom, $age]);
                 // if ($stmt->rowCount() > 0) {
