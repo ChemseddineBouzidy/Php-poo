@@ -25,6 +25,10 @@
 
         
     ?>
+    <div class="container">
+        <h1 class="text-center">Liste des stagiaires</h1>
+        <a href="ajouter.php" class="btn btn-primary mb-3 float-end">Ajouter un stagiaire</a>
+    </div>
 <table class="table">
   <thead>
     <tr>
